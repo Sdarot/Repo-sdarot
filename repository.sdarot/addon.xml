@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.sdarot" name="[COLOR white][B]Sdarot[/B][/COLOR][COLOR white][B].Tv[/B][/COLOR] [COLOR white][B]Repo[/B][/COLOR]" version="1.0.3" provider-name="Sdarot">
+        <extension point="xbmc.addon.repository" name="Sdarot Repository">
+                <info compressed="false">http://raw.github.com/Sdarot/Repo-Sdarot/master/addons.xml</info>
+                <checksum>http://raw.github.com/Sdarot/Repo-Sdarot/master/addons.xml.md5</checksum>
+                <datadir zip="true">http://raw.github.com/Sdarot/Repo-Sdarot/master/zip</datadir>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+                <summary>Sdarot.Tv Repository</summary>
+                <description>Sdarot.Tv Repository</description>
+                <disclaimer></disclaimer>
+                <platform>all</platform>
+        </extension>
+</addon>

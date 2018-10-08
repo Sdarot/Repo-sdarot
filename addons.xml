@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addons>
+<addon id="repository.sdarot" name="[COLOR white][B]Sdarot[/B][/COLOR][COLOR white][B].Tv[/B][/COLOR] [COLOR white][B]Repo[/B][/COLOR]" version="1.0.3" provider-name="Sdarot">
+        <extension point="xbmc.addon.repository" name="Sdarot Repository">
+                <info compressed="false">http://raw.github.com/Sdarot/Repo-Sdarot/master/addons.xml</info>
+                <checksum>http://raw.github.com/Sdarot/Repo-Sdarot/master/addons.xml.md5</checksum>
+                <datadir zip="true">http://raw.github.com/Sdarot/Repo-Sdarot/master/zip</datadir>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+                <summary>Sdarot.Tv Repository</summary>
+                <description>Sdarot.Tv Repository</description>
+                <disclaimer></disclaimer>
+                <platform>all</platform>
+        </extension>
+</addon>
+
+<addon id="plugin.video.sdarot.tv" name="Sdarot.Tv" version="2.5.6" provider-name="Sdarot">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+        <import addon="script.module.xbmcswift2" version="2.4.0"/>
+        <import addon="script.module.requests" version="2.9.1"/>
+        <import addon="script.module.urllib3" version="1.22" optional="true"/>
+        <import addon="repository.sdarot" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="sdarottv.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <minversion>31632</minversion>
+        <summary lang="en">Watch Sdarot.Tv video contents.</summary>
+        <summary lang="he">סדרות מתוך האתר Sdarot.Tv</summary>
+        <description lang="en">Sdarot is a site that deals with direct viewing of various series from Israel and abroad. All series are on site contain subtitles, Israeli series also has translation sometimes. sdarot lets watch thousands of different series and tens of thousands of different episodes free! The site sdarot Updated on a daily base and allows direct viewing of innovative technologies while ensuring maximum quality without compromise.</description>
+        <description lang="he">סדרות הינו אתר העוסק בצפייה ישירה של סדרות שונות מהארץ ומחו"ל. כל הסדרות מח"ול הנמצאות באתר סדרות מכילות תרגום לעברית, גם בסדרות הישראליות יש תרגום לעתים. אתר סדרות מאפשר צפייה ישירה חינם לאלפי סדרות שונות ועשרות אלפי פרקים שונים בחינם! אתר סדרות מתעדכן על בסיס יומי ומאפשר צפייה ישירה בטכנולוגיות חדשניות תוך הקפדה על איכות מקסימלית ללא פשרות.</description>
+        <news>[B]Version 2.5.6[/B][CR]Fixed episode download for subscriptions.</news>
+        <supportedcontent>
+        <content>tvshows</content>
+        </supportedcontent>
+    </extension>
+</addon>
+
+<addon id="script.module.xbmcswift2" name="xbmcswift2" provider-name="Jonathan Beluch (jbel)" version="2.4.0">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0" />
+  </requires>
+  <extension library="lib" point="xbmc.python.module" />
+  <extension point="xbmc.addon.metadata">
+    <language />
+    <platform>all</platform>
+  </extension>
+</addon>
+
+<addon id="script.module.requests"
+       name="requests"
+       version="2.9.1"
+       provider-name="kennethreitz, beenje">
+  <requires>
+    <import addon="xbmc.python" version="2.14.0"/>
+  </requires>
+  <extension point="xbmc.python.module"
+             library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary>Python HTTP for Humans</summary>
+    <description>Packed for KODI from https://github.com/kennethreitz/requests</description>
+    <platform>all</platform>
+    <language></language>
+    <license>Apache2</license>
+    <forum></forum>
+    <website>http://python-requests.org</website>
+    <source>https://github.com/beenje/script.module.requests</source>
+    <email>beenje AT gmail.com</email>
+  </extension>
+</addon>
+
+<addon id="script.module.urllib3"
+       name="urllib3"
+       version="1.22"
+       provider-name="shazow">
+  <requires>
+    <import addon="xbmc.python" version="2.25.0"/>
+  </requires>
+  <extension point="xbmc.python.module"
+             library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">urllib3 is a powerful, sanity-friendly HTTP client for Python</summary>
+    <description lang="en_GB">Packed for KODI from https://github.com/shazow/urllib3</description>
+    <platform>all</platform>
+    <language></language>
+    <license>MIT</license>
+    <forum></forum>
+    <website>https://urllib3.readthedocs.io/en/latest/</website>
+    <source>https://github.com/beenje/script.module.urllib3</source>
+    <email>beenje AT gmail.com</email>
+  </extension>
+</addon>
+
+<addon id="plugin.program.sdarot.tv"  name="Sdarot.Tv Maintenance" version="1.0.5" provider-name="Sdarot"> 
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="repository.sdarot" />
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Sdarot.Tv Maintenance</summary>
+    <summary lang="he">Sdarot.Tv תחזוקה</summary>
+    <language>en</language>
+    <description lang="en">Sdarot.Tv Maintenance</description>
+    <description lang="he">Sdarot.Tv תחזוקה</description>
+     <platform>all</platform>
+  </extension>
+</addon>
+</addons>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <setting id="username" label="20002" type="text" default="" />
+    <setting id="password" label="20003" type="text" default="" option="hidden" enable="!eq(-1,)" />
+	<setting id="del_cache" label="20006" type="action" action="RunPlugin(plugin://plugin.video.sdarot.tv/clean)" />
+	<setting id="max_quality" label="20007" type="labelenum" values="1080|480|720" default="1080" />
+    <setting id="sync_from_kodi" label="20008" type="action" action="RunPlugin(plugin://plugin.video.sdarot.tv/sync)" />
+    <setting id="download_path" label="20009" type="folder" option="writeable" default="" />
+</settings>

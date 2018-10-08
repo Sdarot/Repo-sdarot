@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.program.sdarot.tv"  name="Sdarot.Tv Maintenance" version="1.0.5" provider-name="Sdarot"> 
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="repository.sdarot" />
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Sdarot.Tv Maintenance</summary>
+    <summary lang="he">Sdarot.Tv תחזוקה</summary>
+    <language>en</language>
+    <description lang="en">Sdarot.Tv Maintenance</description>
+    <description lang="he">Sdarot.Tv תחזוקה</description>
+     <platform>all</platform>
+  </extension>
+</addon>
