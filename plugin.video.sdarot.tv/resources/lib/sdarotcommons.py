@@ -14,7 +14,7 @@ except:
 __PLUGIN_VERSION__ = plugin.addon.getAddonInfo('version')
 
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36 Sdarot/' + __PLUGIN_VERSION__
+    'User-Agent': 'Kodi%20v' + __PLUGIN_VERSION__
 }
 
 FANART = plugin.addon.getAddonInfo('fanart')
@@ -216,8 +216,8 @@ def build_final_url(url, cookie):
 def set_dir(items, mode, content, p):
     p.add_items(items)
     p.set_content(content)
-    p.set_view_mode(mode)
-
+    if plugin.get_setting("use_view_mode") == 'true':
+        p.set_view_mode(mode)
 
 def sync_sdarot(storage, updated_list):
     """

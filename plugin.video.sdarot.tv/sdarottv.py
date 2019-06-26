@@ -176,7 +176,6 @@ def watch(sid, season, episode, title, vid):
     if vid == 'None':  # Otherwise request was sent from choose_quality and url already exist
         vid, cookie = sdarot.get_final_video_and_cookie(sid, season, episode)
 
-    xbmc.log(vid, 5)
     if vid:
         item = ListItem(**{
             'label': u'פרק {0}'.format(episode),

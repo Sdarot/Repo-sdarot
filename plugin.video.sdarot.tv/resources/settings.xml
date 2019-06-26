@@ -6,4 +6,5 @@
 	<setting id="max_quality" label="20007" type="labelenum" values="1080|480|720" default="1080" />
     <setting id="sync_from_kodi" label="20008" type="action" action="RunPlugin(plugin://plugin.video.sdarot.tv/sync)" />
     <setting id="download_path" label="20009" type="folder" option="writeable" default="" />
+	<setting id="use_view_mode" type="bool" label="30006" default="true" />
 </settings>

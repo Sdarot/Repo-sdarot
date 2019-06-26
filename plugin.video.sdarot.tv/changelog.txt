@@ -1,3 +1,5 @@
+[B]Version 2.5.7[/B]
+- Added option to choose a default view mode in addon settings.
 [B]Version 2.5.6[/B]
 - Fixed episode download for subscriptions.
 [B]Version 2.5.5[/B]
