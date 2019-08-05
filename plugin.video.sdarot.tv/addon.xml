@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.sdarot.tv" name="Sdarot.Tv" version="2.5.7" provider-name="Sdarot">
+<addon id="plugin.video.sdarot.tv" name="Sdarot.Tv" version="2.5.8" provider-name="Sdarot">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
         <import addon="script.module.xbmcswift2" version="2.4.0"/>
@@ -17,7 +17,7 @@
         <summary lang="he">סדרות מתוך האתר Sdarot.Tv</summary>
         <description lang="en">Sdarot is a site that deals with direct viewing of various series from Israel and abroad. All series are on site contain subtitles, Israeli series also has translation sometimes. sdarot lets watch thousands of different series and tens of thousands of different episodes free! The site sdarot Updated on a daily base and allows direct viewing of innovative technologies while ensuring maximum quality without compromise.</description>
         <description lang="he">סדרות הינו אתר העוסק בצפייה ישירה של סדרות שונות מהארץ ומחו"ל. כל הסדרות מח"ול הנמצאות באתר סדרות מכילות תרגום לעברית, גם בסדרות הישראליות יש תרגום לעתים. אתר סדרות מאפשר צפייה ישירה חינם לאלפי סדרות שונות ועשרות אלפי פרקים שונים בחינם! אתר סדרות מתעדכן על בסיס יומי ומאפשר צפייה ישירה בטכנולוגיות חדשניות תוך הקפדה על איכות מקסימלית ללא פשרות.</description>
-        <news>[B]Version 2.5.7[/B][CR]Added option to choose a default view mode in addon settings.</news>
+        <news>[B]Version 2.5.8[/B][CR]Changes inside addon to fit site changes.</news>
         <supportedcontent>
         <content>tvshows</content>
         </supportedcontent>

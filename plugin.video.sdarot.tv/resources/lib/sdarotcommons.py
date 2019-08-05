@@ -185,8 +185,7 @@ def get_final_video_and_cookie(sid, season, episode, choose_quality=False, downl
 
 
 def get_video_url(sid, season, episode, token, cookie, choose_quality):
-    req = requests.post(API + '/episode/watch/sid/{0}/se/{1}/ep/{2}'.format(sid, season, episode),
-                        data={'token': token}, cookies=cookie, headers=HEADERS).json()
+    req = requests.get(API + '/episode/watch/sid/{0}/se/{1}/ep/{2}/token/{3}'.format(sid, season, episode, token), cookies=cookie, headers=HEADERS).json()
     if req['success']:
         qualities = req['watch']
         if choose_quality:
