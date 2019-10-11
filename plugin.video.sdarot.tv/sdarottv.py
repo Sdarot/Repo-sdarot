@@ -60,6 +60,10 @@ def main_menu():
             {
                 'label': u'סדרות מעקב',
                 'path': plugin.url_for('tracking_list')
+            },
+            {
+                'label': u'סדרות שלי',
+                'path': plugin.url_for('my_shows_list')
             }
         ]
     ]
@@ -110,12 +114,13 @@ def open_series(sid, title):
 
     items = []
     for season in sorted(episodes.keys(), key=int):
-        label = u'עונה {0}'.format(season)
+        season_label = u'Season {0}' if eng_only() else u'עונה {0}'
+        label = season_label.format(season)
         path = plugin.url_for('open_season', sid=sid, se=season, title=title, title_eng=serie['eng'].encode('utf8'))
         items.append(sdarot.make_item(label, path, serie['description'], POSTER_PREFIX + sid + '.jpg', False,
                                       fav=build_fav(label, path, sid, '0'), genres=req['genres']))
 
-    sdarot.set_dir(items, 504, 'episodes', plugin)
+    sdarot.set_dir(items, 504, 'seasons', plugin)
     return []
 
 
@@ -129,7 +134,10 @@ def open_season(sid, se, title, title_eng):
     episodes = req['episodes'][str(se)]
     items = []
     for episode in episodes or []:
-        label = u'פרק {0}'.format(episode['episode'])
+        if eng_only():
+          label = u'Episode S{0}E{1}'.format(str(se).zfill(2), episode['episode'].zfill(2))
+        else:
+          label = u'פרק {0}'.format(episode['episode'])
         plot = episode['description'].encode('utf-8') or 'לא זמין'
         path = plugin.url_for('watch', sid=sid, season=se, episode=episode['episode'],
                               title=title, vid='None')
@@ -271,7 +279,7 @@ def search(page):
             if results:
                 items = []
                 for s in results:
-                    label = u'{0}-{1}'.format(s['heb'], s['eng'])
+                    label = show_name(s['eng'], s['heb'])
                     path = plugin.url_for('open_series', sid=s['id'], title=s['heb'].encode('utf8'))
                     items.append(sdarot.make_item(label, path, s['description'], POSTER_PREFIX + s['poster'], False,
                                                   fav=build_fav(label, path, s['id'], '0'), year=s['year']))
@@ -291,8 +299,8 @@ def tracking_list():
         req = requests.get(API + '/tracking/list', cookies=cookie, headers=HEADERS)
         items = [
             {
-                'label': u'{0}-{1}-{2}'.format(s['heb'], s['eng'], u'צפית ב {0} מתוך {1} פרקים'.format(s['watched'],
-                                                                                                       s['total'])),
+                'label': u'{0}-{1}'.format(show_name(s['eng'], s['heb']), show_progress(s['watched'],
+                                                                                        s['total'])),
                 'path': plugin.url_for('open_series', sid=s['serieID'], title=s['heb'].encode('utf8')),
                 'icon': POSTER_PREFIX + s['poster'],
                 'thumbnail': POSTER_PREFIX + s['poster'],
@@ -306,6 +314,48 @@ def tracking_list():
             } for s in req.json()['list']
         ]
         sdarot.set_dir(items, 504, 'episodes', plugin)
+        return []
+    else:
+        plugin.notify('התחבר כדי להכנס לרשימת מעקב', image=ICON)
+
+
+def show_name(eng_name, heb_name):
+  if eng_only():
+    return eng_name
+  if heb_only():
+    return heb_name
+  return u'{0}-{1}'.format(heb_name, eng_name)
+
+
+def show_progress(watched, total):
+  if eng_only():
+    return u'Watched {0} of {1} episodes'.format(watched, total)
+  if heb_only():
+    return  u'צפית ב {0} מתוך {1} פרקים'.format(watched, total)
+  return u'צפית ב {0} מתוך {1} פרקים'.format(watched, total)
+
+
+@plugin.route('/my_shows_list')
+def my_shows_list():
+    cookie = sdarot.get_user_cookie()
+    if cookie:
+        req = requests.get(API + '/tracking/list', cookies=cookie, headers=HEADERS)
+        items = [
+            {
+                'label': show_name(s['eng'], s['heb']),
+                'path': plugin.url_for('open_series', sid=s['serieID'], title=s['heb'].encode('utf8')),
+                'icon': POSTER_PREFIX + s['poster'],
+                'thumbnail': POSTER_PREFIX + s['poster'],
+                'properties': {
+                    'Fanart_Image': FANART
+                },
+                'context_menu': [('הסרה ממעקב',
+                                  'XBMC.Container.Update({0})'.format(plugin.url_for('delete_tracking',
+                                                                                     sid=s['serieID'],
+                                                                                     cookie=cookie['Sdarot'])))]
+            } for s in req.json()['list']
+        ]
+        sdarot.set_dir(items, 504, 'tvshows', plugin)
         return []
     else:
         plugin.notify('התחבר כדי להכנס לרשימת מעקב', image=ICON)
@@ -459,6 +509,20 @@ def download_vid(sid, season, ep, title, quality):
 
 def build_fav(label, path, sid, is_playable):
     return plugin.url_for('add_fav', label=label.encode('utf-8'), path=path, sid=sid, is_playable=is_playable)
+
+
+def eng_only():
+  is_eng = (xbmc.getLanguage(xbmc.ISO_639_2) == 'eng')
+  if not is_eng:
+    return False
+  return (plugin.get_setting('use_native_lang') == 'true')
+
+
+def heb_only():
+  is_heb = (xbmc.getLanguage(xbmc.ISO_639_2) == 'heb')
+  if not is_heb:
+    return False
+  return (plugin.get_setting('use_native_lang') == 'true')
 
 
 if __name__ == '__main__':
