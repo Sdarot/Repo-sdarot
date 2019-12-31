@@ -10,7 +10,7 @@ $[COLOR ff00FFFF][B]===רפו Sdarot.Tv===[/COLOR][/B]$
 https://raw.githubusercontent.com/Sdarot/Repo-Sdarot/master/zip/repository.sdarot/repository.sdarot-1.0.3.zip$repository.sdarot$repository.sdarot
 #addons
 $[B][COLOR ff00FFFF]===הרחבת Sdarot.Tv===[/COLOR][/B]$
-https://raw.githubusercontent.com/Sdarot/Repo-Sdarot/master/zip/plugin.video.sdarot.tv/plugin.video.sdarot.tv-2.5.8.zip$plugin.video.sdarot.tv$plugin.video.sdarot.tv
+https://raw.githubusercontent.com/Sdarot/Repo-Sdarot/master/zip/plugin.video.sdarot.tv/plugin.video.sdarot.tv-2.5.9.zip$plugin.video.sdarot.tv$plugin.video.sdarot.tv
 $[B][COLOR ff00FFFF]===תלויות להרחבה===[/COLOR][/B]$
 https://raw.githubusercontent.com/Sdarot/Repo-Sdarot/master/zip/script.module.requests/script.module.requests-2.9.1.zip$script.module.requests$script.module.requests
 https://raw.githubusercontent.com/Sdarot/Repo-Sdarot/master/zip/script.module.xbmcswift2/script.module.xbmcswift2-2.4.0.zip$script.module.xbmcswift2$script.module.xbmcswift2

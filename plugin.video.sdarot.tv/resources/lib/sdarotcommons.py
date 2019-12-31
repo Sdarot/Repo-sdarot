@@ -85,7 +85,7 @@ def get_user_cookie():
             'password': password
         }
 
-        req = requests.post(API + '/login', data=data, headers=HEADERS)
+        req = requests.post(API + '/user/login', data=data, headers=HEADERS)
         res = req.json()
 
         if res['success']:
