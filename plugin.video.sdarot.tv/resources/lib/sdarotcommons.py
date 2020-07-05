@@ -20,7 +20,7 @@ HEADERS = {
 FANART = plugin.addon.getAddonInfo('fanart')
 ICON = plugin.addon.getAddonInfo('icon')
 API = base64.decodestring('aHR0cHM6Ly9hcGkuc2Rhcm90LnR2')
-POSTER_PREFIX = base64.decodestring('aHR0cHM6Ly93d3cuZG9tYWluNGtvZGkubGlmZS9zZXJpZXMv')
+POSTER_PREFIX = base64.decodestring('aHR0cDovL3d3dy5kb21haW40a29kaS5saWZlL3Nlcmllcy8=')
 CACHE_FILE = os.path.join(xbmc.translatePath(plugin.addon.getAddonInfo('profile')).decode('utf-8'), 'cache.json')
 
 
